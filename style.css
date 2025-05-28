@@ -1,111 +1,152 @@
 body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #FFF8E1;
-    color: #333;
-    line-height: 1.6;
-    overflow-x: hidden; /*Impede a rolagem lateral*/ 
+    margin: 0; /* Remove as margens padrão do corpo da página */
+    font-family: 'Montserrat', sans-serif; /* Define a fonte primária para o corpo do texto, com uma opção de fallback sans-serif */
+    background-color: #FFF8E1; /* Define a cor de fundo do corpo como um amarelo claro cremoso (como farinha de milho) */
+    color: #333; /* Define a cor do texto principal como um cinza escuro */
+    line-height: 1.6; /* Define a altura da linha para melhorar a legibilidade do texto */
+    overflow-x: hidden; /* Impede a rolagem horizontal, útil para layouts responsivos */
 }
 
 header, .map {
-    background: linear-gradient(135deg, #FF7043, #FFB74D); /*Aplica um gradiente com ângulo de 135 graus*/
-    color: white;
-    padding: 30px;
-    text-align: center;
-    border-bottom: 8px solid #D84315; /*Adiciona uma borda inferior*/
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /*Aplica uma sombra suave no cabeçalho*/
+    background: linear-gradient(135deg, #FF7043, #FFB74D); /* Aplica um gradiente linear de laranja vibrante ao cabeçalho e à seção de mapa, com ângulo de 135 graus */
+    color: white; /* Define a cor do texto dentro do cabeçalho e da seção de mapa como branco */
+    padding: 2.5em 1em; /* Define o preenchimento interno (espaço entre o conteúdo e a borda) superior/inferior como 2.5em e esquerdo/direito como 1em */
+    text-align: center; /* Centraliza o texto dentro do cabeçalho e da seção de mapa */
+    border-bottom: 8px solid #D84315; /* Adiciona uma borda inferior de 8 pixels de largura e cor laranja escura */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Aplica uma sombra suave abaixo do cabeçalho e da seção de mapa para dar profundidade */
 }
 
 h1 {
-    font-family:'Luckiest Guy', cursive;
-    font-size: 60px;
-    margin: 0;
-    text-shadow: 3px 3px 0px #D84315, 4px 4px 0px rgba(0, 0, 0, 0.2); /*Dupla sombra no texto*/
-    letter-spacing: 1px; /*espaçamento entre as letras*/
+    font-family: 'Luckiest Guy', cursive; /* Define uma fonte cursiva estilizada para o título principal */
+    font-size: clamp(2.5em, 5vw, 4em); /* Define um tamanho de fonte responsivo que varia entre 2.5em (mínimo), 5% da largura da viewport e 4em (máximo) */
+    margin: 0; /* Remove as margens padrão do título */
+    text-shadow: 3px 3px 0px #D84315, 4px 4px 0px rgba(0,0,0,0.2); /* Aplica duas camadas de sombra ao texto do título para um efeito 3D */
+    letter-spacing: 1px; /* Adiciona um pequeno espaçamento entre as letras do título */
 }
 
 header p {
-    font-size: 30px;
-    font-weight: bold;
+    font-size: clamp(1em, 2.5vw, 1.3em); /* Define um tamanho de fonte responsivo para o parágrafo dentro do cabeçalho */
+    margin-top: 0.5em; /* Adiciona um pequeno espaço acima do parágrafo */
+    font-weight: bold; /* Define o texto do parágrafo em negrito */
+    opacity: 0.9; /* Define a opacidade do texto para 90%, tornando-o ligeiramente transparente */
 }
 
 .banner {
-    min-height: 450px;
-    background-size: cover; /*Garante que a imagem cubra todo o espaço*/
-    background-position: center center;/*Centraliza a imagem de fundo*/
-    background-attachment: fixed; /*Deixa a imagem fixa enquanto rola o banner*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 48px 24px;
-    position: relative;
-    color: white;
-    overflow: hidden;
+    min-height: 450px; /* Define uma altura mínima para a seção de banner */
+    background-size: cover; /* Garante que a imagem de fundo cubra todo o espaço do banner sem distorção */
+    background-position: center center; /* Centraliza a imagem de fundo tanto horizontal quanto verticalmente */
+    background-attachment: fixed; /* Cria um efeito de paralaxe onde a imagem de fundo permanece fixa enquanto o conteúdo rola */
+    display: flex; /* Utiliza o modelo de layout flexbox para alinhar os itens internos */
+    align-items: center; /* Alinha os itens verticalmente ao centro do banner */
+    justify-content: center; /* Alinha os itens horizontalmente ao centro do banner */
+    text-align: center; /* Centraliza o texto dentro do banner */
+    padding: 3em 1.5em; /* Define o preenchimento interno do banner */
+    position: relative; /* Define a posição como relativa para que elementos filhos com posição absoluta sejam posicionados em relação a ele */
+    color: white; /* Define a cor do texto dentro do banner como branco */
+    overflow: hidden; /* Garante que pseudo-elementos não ultrapassem as bordas do banner */
 }
 
-.banner::before { /*Cria um pseudo-elemento antes do conteúdo do banner*/
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
-    z-index: 1;/* Define a ordem de empilhamento*/
+.banner::before { /* Cria um pseudo-elemento antes do conteúdo do banner */
+    content: ""; /* Conteúdo vazio necessário para exibir o pseudo-elemento */
+    position: absolute; /* Posiciona o pseudo-elemento de forma absoluta dentro do banner */
+    top: 0; /* Define a distância do topo como 0 */
+    left: 0; /* Define a distância da esquerda como 0 */
+    right: 0; /* Define a distância da direita como 0 */
+    bottom: 0; /* Define a distância da base como 0, fazendo com que cubra todo o banner */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)); /* Aplica um gradiente linear escuro sobre a imagem de fundo para melhorar a legibilidade do texto */
+    z-index: 1; /* Define a ordem de empilhamento do pseudo-elemento, garantindo que ele fique atrás do conteúdo principal */
 }
 
 .banner-content {
-    position: relative; /*para controlar seu posicionamento dentro do banner*/
-    z-index: 2; 
-    max-width: 800px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    padding: 24px 32px;
-    border-radius: 12px;
-    border: 2px solid #ffffff33;
-    transition: transform 0.3s ease-in-out; /*Adiciona uma trasição suave */
-    background-color: rgba(0, 0, 0, 0.3);
+    position: relative; /* Define a posição como relativa para controlar seu posicionamento dentro do banner */
+    z-index: 2; /* Define a ordem de empilhamento, garantindo que o conteúdo fique acima do overlay */
+    max-width: 800px; /* Define uma largura máxima para o conteúdo do banner */
+    background-color: rgba(0, 0, 0, 0.3); /* Define um fundo preto semi-transparente para a caixa de conteúdo */
+    padding: 1.5em 2em; /* Define o preenchimento interno da caixa de conteúdo */
+    border-radius: 12px; /* Arredonda os cantos da caixa de conteúdo */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Aplica uma sombra mais forte à caixa de conteúdo */
+    border: 2px solid #ffffff33; /* Adiciona uma borda branca semi-transparente à caixa de conteúdo */
+    transition: transform 0.3s ease-in-out; /* Adiciona uma transição suave para a propriedade 'transform' */
 }
 
 .banner-content:hover {
-    transform: scale(1.05); /* Aumenta a escala do conteúdo ao passar o mouse em cima*/
+    transform: scale(1.05); /* Aumenta ligeiramente a escala da caixa de conteúdo em 5% ao passar o mouse, criando um efeito de destaque */
 }
 
 .banner-content h2 {
-    font-family: 'Luckiest Guy', cursive;
-    font-size: 40px;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 0px #333, 3px 3px 0px rgba(0, 0, 0, 0.3);
-    color: #FFD180;
+    font-family: 'Luckiest Guy', cursive; /* Aplica a mesma fonte estilizada para os títulos dentro do conteúdo do banner */
+    font-size: clamp(2.2em, 4vw, 3.5em); /* Define um tamanho de fonte responsivo para os títulos */
+    margin-bottom: 0.5em; /* Adiciona um pequeno espaço abaixo dos títulos */
+    text-shadow: 2px 2px 0px #333, 3px 3px 0px rgba(0,0,0,0.3); /* Aplica sombras diferentes para um efeito de profundidade */
+    color: #FFD180; /* Define a cor dos títulos como um laranja claro */
 }
 
 .banner-content p {
-    font-size: 20px;
-    font-weight: normal;
-    line-height: 1.7; /*Aumenta a altura da linha*/
+    font-size: clamp(1.1em, 2vw, 1.4em); /* Define um tamanho de fonte responsivo para os parágrafos dentro do conteúdo */
+    font-weight: normal; /* Define o peso da fonte como normal (não negrito) */
+    line-height: 1.7; /* Aumenta a altura da linha para melhor legibilidade */
 }
 
-/*Imagens dos banner*/
-#banner1 {background-image: url(hero-banner.png);} /*Define a imagem dos banner*/
-#banner2 {background-image: url(comidas.png);} 
-#banner3 {background-image: url(dance.png);} 
-#banner4 {background-image: url(brincadeiras.png);} 
-#banner5 {background-image: url(musica.png);} 
-#banner6 {background-image: url(decoracao.png);} 
+/* Specific banner images */
+#banner1 { background-image: url('./hero-banner.png'); } /* Define a imagem de fundo para o banner com o ID 'banner1 a 6' */
+#banner2 { background-image: url('./comidas.png'); } 
+#banner3 { background-image: url('./dance.png'); } 
+#banner4 { background-image: url('./brincadeiras.png'); } 
+#banner5 { background-image: url('./musica.png'); } 
+#banner6 { background-image: url('./decoracao.png'); } 
 
-.banner:not(:last-child) { 
-    margin-bottom: 16px; /*Adiciona uma margem inferior a todos os banners, exceto o último*/
+.banner:not(:last-child) {
+    margin-bottom: 1em; /* Adiciona uma margem inferior de 1em a todos os banners, exceto o último, para separá-los */
 }
 
 footer {
-    background-color: #4E342E;
-    color: white;
-    text-align: center;
-    padding: 32px 16px;
-    margin-top: 48px;
-    border-top: 5px solid #3E2723; /*Adiciona uma borda superior ao rodapé*/
+    background-color: #4E342E; /* Define a cor de fundo do rodapé como um marrom escuro (como madeira ou terra) */
+    color: #FFF8E1; /* Define a cor do texto dentro do rodapé como o mesmo amarelo claro do fundo do corpo */
+    text-align: center; /* Centraliza o texto dentro do rodapé */
+    padding: 2em 1em; /* Define o preenchimento interno do rodapé */
+    margin-top: 3em; /* Adiciona uma margem superior para separar o rodapé do conteúdo principal */
+    border-top: 5px solid #3E2723; /* Adiciona uma borda superior mais escura ao rodapé */
 }
 
 footer p {
-    margin: 0;
-    font-size: 14px;
+    margin: 0; /* Remove as margens padrão do parágrafo dentro do rodapé */
+    font-size: 0.9em; /* Define um tamanho de fonte ligeiramente menor para o texto do rodapé */
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) { /* Aplica estilos quando a largura da tela for no máximo 768 pixels (telas menores, como tablets) */
+    header {
+        padding: 2em 1em; /* Reduz ligeiramente o preenchimento do cabeçalho em telas menores */
+    }
+    .banner {
+        min-height: 350px; /* Reduz a altura mínima do banner em telas menores */
+        padding: 2em 1em; /* Reduz ligeiramente o preenchimento do banner */
+    }
+    .banner-content {
+        padding: 1em 1.5em; /* Reduz o preenchimento da caixa de conteúdo do banner */
+    }
+    iframe {
+        width: 100%; /* Garante que o iframe ocupe toda a largura disponível */
+        height: 600px; /* Define uma altura fixa para o iframe */
+    }
+}
+
+@media (max-width: 480px) { /* Aplica estilos quando a largura da tela for no máximo 480 pixels (telas de celulares menores) */
+    .banner {
+        min-height: 300px; /* Reduz ainda mais a altura mínima do banner em telas de celular */
+    }
+    iframe {
+        height: 400px; /* Reduz a altura do iframe em telas menores */
+    }
+}
+
+/* clamp() = permite que o tamanho da fonte seja calculado 
+dinamicamente, baseando-se no tamanho da tela e no tamanho 
+base da fonte, garantindo que o texto seja legível em diferentes dispositivos. */
+
+
+/* .banner::before refere-se a um pseudo-elemento que permite inserir 
+conteúdo antes do conteúdo principal de um elemento com a classe .banner */
+
+/* .banner:not(:last-child) seleciona todos os elementos que têm a 
+classe banner e que não são o último filho de seu elemento pai */
